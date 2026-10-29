@@ -1,0 +1,107 @@
+/* Colours are defined once here and reused below */
+:root {
+  --ink: #1f2933;
+  --paper: #faf9f6;
+  --navy: #1b365d;
+  --muted: #5b6770;
+  --line: #e3e1dc;
+  --caution: #b45309;
+  --caution-bg: #fff7ed;
+}
+
+body {
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+/* Numbered control labels in the sidebar */
+.sidebar .control-label {
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.control-help {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-top: -0.4rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Box at the top that names the user and the question */
+.intro-box {
+  border-left: 6px solid var(--navy);
+  background-color: white;
+  padding: 0.9rem 1.2rem;
+  margin-bottom: 1rem;
+  border-radius: 0.3rem;
+}
+
+.intro-box p {
+  margin-bottom: 0.3rem;
+}
+
+.intro-user {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.intro-question {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* The headline above the chart states the result */
+.headline {
+  color: var(--navy);
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+.how-to-read {
+  color: var(--muted);
+  max-width: 60rem;
+}
+
+/* On a very narrow screen the chart scrolls sideways instead of shrinking */
+#trend_plot {
+  overflow-x: auto;
+}
+
+/* Warnings about weak evidence */
+.data-notes {
+  border-left: 5px solid var(--caution);
+  background-color: var(--caution-bg);
+  padding: 0.7rem 1rem 0.2rem 1rem;
+  margin-top: 1rem;
+  border-radius: 0.3rem;
+}
+
+.data-notes h5 {
+  color: var(--caution);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* Messages shown by validate() when there is nothing to display */
+.shiny-output-error-validation {
+  color: var(--caution);
+  background-color: var(--caution-bg);
+  border-left: 5px solid var(--caution);
+  padding: 1rem 1.2rem;
+  font-size: 1.05rem;
+  border-radius: 0.3rem;
+}
+
+/* Field definitions in the About tab */
+.field-list dt {
+  color: var(--navy);
+  margin-top: 0.6rem;
+}
+
+.field-list dd {
+  margin-left: 0;
+  color: var(--ink);
+}
