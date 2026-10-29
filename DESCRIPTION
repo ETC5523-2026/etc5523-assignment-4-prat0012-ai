@@ -1,0 +1,15 @@
+Package: trashwheels
+Title: Explore Rubbish Collected by Baltimore's Trash Wheels
+Version: 0.1.0
+Authors@R: 
+    person("Pratyush", "Kumar", , "pratyushkumar711@gmail.com", role = c("aut", "cre"))
+Description: Provides counts of rubbish collected by the four Trash Wheels
+    in Baltimore's harbour, a function that summarises those counts by year,
+    and a Shiny app that helps community volunteers see which kinds of
+    rubbish each Trash Wheel collects and how this has changed over time.
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Depends: 
+    R (>= 4.1.0)
+License: MIT + file LICENSE
+Config/roxygen2/version: 8.1.1
