@@ -14,3 +14,5 @@ Depends:
 License: MIT + file LICENSE
 Config/roxygen2/version: 8.1.1
 LazyData: true
+Imports: 
+    dplyr
