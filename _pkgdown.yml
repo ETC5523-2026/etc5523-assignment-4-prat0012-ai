@@ -1,0 +1,35 @@
+url: https://etc5523-2026.github.io/etc5523-assignment-4-prat0012-ai/
+
+destination: docs
+
+template:
+  bootstrap: 5
+  bslib:
+    primary: "#1b365d"
+    link-color: "#1b365d"
+
+home:
+  title: "trashwheels: Explore rubbish collected by Baltimore's Trash Wheels"
+  description: >
+    Data, functions and a Shiny app for comparing the rubbish that
+    Baltimore's four Trash Wheels collect, per dumpster load and over time.
+
+navbar:
+  structure:
+    left: [intro, reference]
+    right: [search, github]
+
+reference:
+  - title: "The data"
+    desc: "Rubbish counts for every dumpster load, prepared by data-raw/trash_loads.R."
+    contents:
+      - trash_loads
+  - title: "Summarise and plot"
+    desc: "The functions the app uses, for your own analysis."
+    contents:
+      - summarise_rubbish
+      - plot_rubbish
+  - title: "The app"
+    desc: "Open the Trash Wheel rubbish explorer."
+    contents:
+      - run_app
