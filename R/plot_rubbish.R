@@ -39,8 +39,8 @@ plot_rubbish <- function(summary, measure = "per_load") {
       short_name = sub(" Trash Wheel", "", wheel),
       reliability = if_else(
         loads_counted < 5,
-        "Fewer than 5 loads counted",
-        "5 or more loads counted"
+        "Fewer than 5 loads",
+        "5 or more loads"
       )
     )
 
@@ -64,9 +64,15 @@ plot_rubbish <- function(summary, measure = "per_load") {
   )
 
   point_shapes <- c(
-    "5 or more loads counted" = 16,
-    "Fewer than 5 loads counted" = 21
+    "5 or more loads" = 16,
+    "Fewer than 5 loads" = 21
   )
+
+  # Label every year for short periods, every second year for long ones,
+  # so the year labels never run into each other
+  first_year <- min(plot_data$year)
+  last_year <- max(plot_data$year)
+  year_step <- if (last_year - first_year > 6) 2 else 1
 
   y_label <- if (measure == "per_load") {
     "Average items per dumpster load"
@@ -81,19 +87,21 @@ plot_rubbish <- function(summary, measure = "per_load") {
       data = end_points,
       aes(label = short_name),
       hjust = 0,
-      nudge_x = 0.25,
+      # Put the names just right of the last year, in the margin,
+      # and only move them up or down to stop them overlapping
+      xlim = c(last_year + 0.3, Inf),
       direction = "y",
-      segment.colour = NA,
+      min.segment.length = Inf,
       size = 4.8,
       fontface = "bold",
       show.legend = FALSE,
       seed = 5523
     ) +
     scale_colour_manual(values = wheel_colours, guide = "none") +
-    scale_shape_manual(values = point_shapes, name = NULL) +
+    scale_shape_manual(values = point_shapes, name = "Counted in:") +
     scale_x_continuous(
-      breaks = seq(min(plot_data$year), max(plot_data$year), by = 1),
-      expand = expansion(mult = c(0.03, 0.15))
+      breaks = seq(first_year, last_year, by = year_step),
+      expand = expansion(mult = c(0.03, 0.03))
     ) +
     scale_y_continuous(
       labels = scales::label_comma(),
@@ -107,6 +115,8 @@ plot_rubbish <- function(summary, measure = "per_load") {
       legend.justification = "left",
       panel.grid.minor = element_blank(),
       panel.grid.major.x = element_blank(),
+      # Space on the right for the Trash Wheel names
+      plot.margin = ggplot2::margin(10, 95, 10, 10),
       axis.title.y = element_text(margin = ggplot2::margin(r = 10))
     )
 }
