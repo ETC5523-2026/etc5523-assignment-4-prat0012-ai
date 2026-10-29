@@ -46,8 +46,8 @@ never recorded sports balls, and wrappers were recorded for only some
 Captain and Gwynnda loads.
 
 The number of dumpster loads changes a lot between Trash Wheels and years,
-so yearly totals can be misleading. The average count per dumpster load
-gives a fairer comparison.
+so yearly totals can be misleading. Use \code{\link[=summarise_rubbish]{summarise_rubbish()}} to compare
+the average count per dumpster load instead.
 }
 \examples{
 head(trash_loads)
