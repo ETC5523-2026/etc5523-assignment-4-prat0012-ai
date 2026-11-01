@@ -3,7 +3,7 @@
 # Intended user: a volunteer or community educator with Baltimore's
 # Healthy Harbor initiative.
 # Question: which kinds of rubbish does each Trash Wheel collect most
-# per dumpster load, and is that going up or down over time?
+# per dumpster load, and is the amount going up or down over time?
 #
 # All data come from the installed trashwheels package. The app does not
 # read any CSV or other file when it runs.
@@ -32,6 +32,9 @@ nice_number <- function(x) {
 
 ui <- page_sidebar(
   title = "Trash Wheel rubbish explorer",
+  # Let the page scroll like a normal web page, so the chart is never
+  # squeezed or cut off on a short laptop screen
+  fillable = FALSE,
   theme = bs_theme(
     version = 5,
     primary = "#1b365d",
@@ -94,10 +97,15 @@ ui <- page_sidebar(
     p(class = "intro-user",
       "For Healthy Harbor volunteers and community educators"),
     p(class = "intro-question",
-      "Which kinds of rubbish does each Trash Wheel collect most, and is it",
-      "going up or down over time?"),
-    p("Pick a kind of rubbish on the left. The chart and table update to",
-      "show how much of it each Trash Wheel pulls out of the water.")
+      "Which kinds of rubbish does each Trash Wheel collect most, and is the",
+      "amount going up or down over time?"),
+    p("Baltimore's four Trash Wheels are water wheels at the mouths of",
+      "streams. They lift floating rubbish out of the water before it reaches",
+      "the harbour and drop it into dumpsters. The Trash Wheel team recorded",
+      "993 full dumpster loads from 2014 to 2023, with estimated counts of",
+      "seven kinds of rubbish, such as plastic bottles and cigarette butts."),
+    p("Pick a kind of rubbish on the left. The chart and table then show how",
+      "much of that rubbish each Trash Wheel collects.")
   ),
 
   navset_card_tab(
@@ -248,7 +256,7 @@ server <- function(input, output, session) {
       measure_text <- paste(
         "Each line shows the average number of items in one dumpster load.",
         "A higher line means more of this rubbish in every load, and a",
-        "falling line means each load holds less of it."
+        "falling line means each load holds less of this rubbish."
       )
       value_column <- "items_per_load"
       value_name <- "the average per load"
@@ -306,7 +314,7 @@ server <- function(input, output, session) {
     not_shown <- setdiff(input$wheels, summary$wheel[summary$loads_counted > 0])
     for (wheel in not_shown) {
       notes <- c(notes, list(tags$li(paste0(
-        wheel, " has no counted ", item, " in these years, so it has no line."
+        wheel, " has no counted ", item, " in these years, so that Trash Wheel has no line."
       ))))
     }
 
@@ -317,7 +325,7 @@ server <- function(input, output, session) {
       notes <- c(notes, list(tags$li(paste0(
         "Hollow points use fewer than 5 counted loads (",
         paste(few_text, collapse = ", "),
-        "). One unusual load can move these a lot, so treat them with care."
+        "). One unusual load can move these averages a lot, so treat these points with care."
       ))))
     }
 
