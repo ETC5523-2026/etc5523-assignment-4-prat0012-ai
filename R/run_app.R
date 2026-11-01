@@ -2,7 +2,7 @@
 #'
 #' Opens a Shiny app for Healthy Harbor volunteers and community educators.
 #' It helps them see which kinds of rubbish each Trash Wheel collects most
-#' per dumpster load, and whether that is going up or down over time. The
+#' per dumpster load, and whether the amount is going up or down over time. The
 #' app uses the [trash_loads] data, [summarise_rubbish()] and
 #' [plot_rubbish()] from this package, so it needs no other files.
 #'

@@ -21,11 +21,15 @@ knitr::opts_chunk$set(
 answer one question:
 
 > Which kinds of rubbish does each of Baltimore's Trash Wheels collect most,
-> and is it going up or down over time?
+> and is the amount going up or down over time?
 
-It contains cleaned data on every dumpster load the Trash Wheels collected
-from 2014 to 2023, two functions to summarise and plot it, and a Shiny app
-for exploring it.
+Baltimore's four Trash Wheels (Mister, Professor, Captain and Gwynnda) are
+water wheels at the mouths of streams. They lift floating rubbish out of the
+water before it reaches the harbour and drop it into dumpsters.
+
+The package contains cleaned data on all 993 dumpster loads the Trash Wheels
+collected from 2014 to 2023, two functions to summarise and plot the counts,
+and a Shiny app for exploring the data.
 
 **Documentation website:**
 <https://etc5523-2026.github.io/etc5523-assignment-4-prat0012-ai/>
