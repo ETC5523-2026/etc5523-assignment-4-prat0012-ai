@@ -8,8 +8,8 @@ seven kinds of rubbish.
 This package is for **Healthy Harbor volunteers and community
 educators** who want to answer one question:
 
-> Which kinds of rubbish does each Trash Wheel collect most, and is it
-> going up or down over time?
+> Which kinds of rubbish does each Trash Wheel collect most, and is the
+> amount going up or down over time?
 
 This guide shows how to install the package, use the app, read its
 results, and do the same analysis in your own R code.
